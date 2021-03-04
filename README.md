@@ -4,6 +4,40 @@ This repository contains a CI/CD-optimized Cloudflare Workers template written i
 
 The template is optimized for single page applications. Whenever a request hits a route where an asset cannot be found, a fallback to `index.html` is sent instead of a `404` error.
 
+## Usage
+
+The template is designed to be used by CI/CD pipelines. Such a pipeline shall first transform the website into static files, for example with a Webpack build; then it should clone this repository and replace content in the `public` folder with static files to be served.
+
+Then, authenticate with cloudflare with the following command:
+
+```sh
+$ echo "${CLOUDFLARE_API_TOKEN}" | yarn wrangler config
+```
+
+Set the following environment variables:
+
+- `CLOUDFLARE_WORKER_NAME`
+
+  Name of the Cloudflare worker.
+
+- `CLOUDFLARE_ACCOUNT_ID`
+
+  Cloudflare account ID.
+
+- `DOMAIN`
+
+  Custom domain to be used for serving the website.
+
+- `CLOUDFLARE_ZONE_ID`
+
+  Cloudflare zone ID of the custom domain.
+
+Finally, publish the site with:
+
+```
+$ yarn publish
+```
+
 ## License
 
 [MIT](./LICENSE)
