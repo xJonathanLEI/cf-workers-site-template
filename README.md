@@ -35,7 +35,7 @@ Set the following environment variables:
 Finally, publish the site with:
 
 ```
-$ yarn publish
+$ yarn run publish
 ```
 
 ## License
