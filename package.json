@@ -1,0 +1,23 @@
+{
+  "name": "cf-workers-site",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Cloudflare Workers template for serving static sites optimized for CI/CD",
+  "main": "index.js",
+  "author": "Jonathan LEI <xJonathan@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,js,css,json,md}\""
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^2.1.0",
+    "prettier": "^2.2.1",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.2.2",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  }
+}

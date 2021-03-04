@@ -1,0 +1,11 @@
+name = "${CLOUDFLARE_WORKER_NAME}"
+type = "webpack"
+account_id = "${CLOUDFLARE_ACCOUNT_ID}"
+workers_dev = true
+route = "${DOMAIN}/*"
+zone_id = "${CLOUDFLARE_ZONE_ID}"
+webpack_config = "webpack.config.js"
+
+[site]
+bucket = "./public"
+entry-point = "src"
