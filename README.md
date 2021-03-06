@@ -38,6 +38,21 @@ Finally, publish the site with:
 $ yarn run publish
 ```
 
+## Route-based Request Proxying
+
+The worker can be configured to proxy requests to certain routes to other URLs, and thus avoiding cross-origin issues that arise when using Cloudflare's "under attack" DDoS protection mode. Simply replace the file `./src/external/proxies.json` with a JSON-formatted list of proxy rules. For example:
+
+```json
+[
+  {
+    "prefix": "/api/",
+    "target": "https://api.example.com/"
+  }
+]
+```
+
+In the example configuration above, assuming the worker is served at `https://example.com/`, a request to `https://example.com/api/login` will be proxied to `https://api.example.com/login`, for instance.
+
 ## License
 
 [MIT](./LICENSE)
