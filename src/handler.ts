@@ -15,6 +15,9 @@ export async function handleEvent(event: FetchEvent) {
   }
 
   try {
+    if (event.request.method == "POST"){
+      return Response.redirect(event.request.url, 303);
+    }
     return await getAssetFromKV(event, {});
   } catch (ex) {
     if (ex.status === 404) {
